@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, RequestOptionsArgs, Response} from '@angular/http';
 import {Board} from "./board";
 
 import 'rxjs/add/operator/toPromise';
@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class BoardService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  boardsUrl = '/board';
+  boardsUrl = 'http://localhost:3000/boards';
 
   constructor(private http: Http) {
   }
@@ -27,14 +27,14 @@ export class BoardService {
       .catch(this.handleError);
   }
 
-  // update(board: Board): Promise<Board> {
-  //   const url = `${this.boardsUrl}/${board.id}`;
-  //   return this.http
-  //     .put(url, JSON.stringify(board), {headers: this.headers})
-  //     .toPromise()
-  //     .then(() => board)
-  //     .catch(this.handleError);
-  // }
+  update(board: Board): Promise<Board> {
+    const url = `${this.boardsUrl}/${board.id}`;
+    return this.http
+      .put(url, JSON.stringify(board), <RequestOptionsArgs> {headers: this.headers})
+      .toPromise()
+      .then(() => board)
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

@@ -16,6 +16,7 @@ import { CardComponent } from './card/card.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
+import {BoardService} from "./board/board.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { HelpComponent } from './help/help.component';
     DragulaModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ BoardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
