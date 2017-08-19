@@ -1,0 +1,38 @@
+.wrapper {
+  display: table;
+}
+.tr {
+  display: table-row;
+}
+.thead {
+  display: table-header-group;
+}
+.td {
+  display: table-cell;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.td:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* TODO(JVA) .td div, .gu-mirror should be changed to .td md-card, .gu-mirror
+   But it affects the look and feel of the card.
+*/
+.td div,
+.gu-mirror {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease-in-out;
+}
+.td md-card {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.gu-mirror {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
