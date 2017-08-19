@@ -4,9 +4,11 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {BoardComponent} from "./board/board.component";
 import {HelpComponent} from "./help/help.component";
 import {SettingsComponent} from "./settings/settings.component";
+
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent},
-  { path: 'boards', component: BoardComponent},
+  { path: 'boards', component: DashboardComponent},
+  { path: 'boards/:id', component: BoardComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'help', component: HelpComponent}
 ];

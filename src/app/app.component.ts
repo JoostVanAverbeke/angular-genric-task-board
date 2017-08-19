@@ -13,9 +13,6 @@ export class AppComponent {
   renderDashboard() {
     this.router.navigate(['']);
   }
-  renderBoards() {
-    this.router.navigate(['/boards']);
-  }
   renderSettings() {
     this.router.navigate(['/settings']);
   }

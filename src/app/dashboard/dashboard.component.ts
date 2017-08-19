@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Board} from "../board/board";
 import {BoardService} from "../board/board.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,10 +16,15 @@ export class DashboardComponent implements OnInit {
 //   ];
   boards: Array<Board>;
 
-  constructor(private boardService: BoardService) { }
+  constructor(private boardService: BoardService, private router: Router) {
+  }
 
   ngOnInit() {
     this.boardService.getBoards().then(boards => this.boards = boards);
+  }
+
+  showBoard(id) {
+    this.router.navigate(['/boards/' + id]);
   }
 
 }
