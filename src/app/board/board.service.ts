@@ -3,6 +3,7 @@ import {Http, RequestOptionsArgs, Response} from '@angular/http';
 import {Board} from "./board";
 
 import 'rxjs/add/operator/toPromise';
+import {Card} from "../card/card";
 
 @Injectable()
 export class BoardService {
@@ -33,6 +34,14 @@ export class BoardService {
       .put(url, JSON.stringify(board), <RequestOptionsArgs> {headers: this.headers})
       .toPromise()
       .then(() => board)
+      .catch(this.handleError);
+  }
+
+  getCardsOfBoard(id: number): Promise<Card[]> {
+    const url = `${this.boardsUrl}/${id}/cards`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Card[])
       .catch(this.handleError);
   }
 

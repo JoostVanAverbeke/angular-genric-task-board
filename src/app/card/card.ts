@@ -3,4 +3,5 @@ export class Card {
   title: string;
   shortDescription: string;
   content: string;
+  status: number;
 }

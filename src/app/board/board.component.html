@@ -1,114 +1,37 @@
-<p></p>
-<div class="wrapper">
-  <div class="thead">
+<h1>{{boardSwimlanes.getBoardTitle()}}</h1>
+<div class='parent'>
+  <div class="wrapper">
+    <div class="thead">
+      <div class="tr">
+        <div class="td" *ngFor="let swimlane of boardSwimlanes.swimlanes">
+          <label>{{swimlane.getStatusString()}}</label>
+        </div>
+      </div>
+    </div>
     <div class="tr">
-      <div class="td">
-        <label>Analysis</label>
-      </div>
-      <div class="td">
-        <label>Analysis Review</label>
-      </div>
-      <div class="td">
-        <label>Code</label>
-      </div>
-      <div class="td">
-        <label>Code Review</label>
-      </div>
-      <div class="td">
-        <label>Merge</label>
+      <div class='td' *ngFor="let swimlane of boardSwimlanes.swimlanes" [dragula]='"first-bag"' [dragulaModel]='swimlane.cards'>
+        <md-card class="example-card" *ngFor="let card of swimlane.cards">
+          <md-card-header>
+            <img md-card-avatar src="/assets/card/malecostume-512.png">
+            <md-card-title>{{card.title}}</md-card-title>
+            <md-card-subtitle>{{card.shortDescription}}</md-card-subtitle>
+          </md-card-header>
+          <md-card-content>
+            <p>
+              {{card.content}}
+            </p>
+          </md-card-content>
+          <md-card-actions>
+            <button md-button>LIKE</button>
+            <button md-button>SHARE</button>
+          </md-card-actions>
+        </md-card>
       </div>
     </div>
   </div>
-  <div class="tr">
-    <div class='td' [dragula]='"first-bag"'>
-      <md-card class="example-card" *ngFor="let card of cards">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>{{card.title}}</md-card-title>
-          <md-card-subtitle>{{card.shortDescription}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-content>
-          <p>
-            {{card.content}}
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button>LIKE</button>
-          <button md-button>SHARE</button>
-        </md-card-actions>
-      </md-card>
-    </div>
-    <div class='td' [dragula]='"first-bag"'>
-      <md-card class="example-card" *ngFor="let card of cards">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>{{card.title}}</md-card-title>
-          <md-card-subtitle>{{card.shortDescription}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-content>
-          <p>
-            {{card.content}}
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button>LIKE</button>
-          <button md-button>SHARE</button>
-        </md-card-actions>
-      </md-card>
-    </div>
-    <div class='td' [dragula]='"first-bag"'>
-      <md-card class="example-card" *ngFor="let card of cards">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>{{card.title}}</md-card-title>
-          <md-card-subtitle>{{card.shortDescription}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-content>
-          <p>
-            {{card.content}}
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button>LIKE</button>
-          <button md-button>SHARE</button>
-        </md-card-actions>
-      </md-card>
-    </div>
-    <div class='td' [dragula]='"first-bag"'>
-      <md-card class="example-card" *ngFor="let card of cards">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>{{card.title}}</md-card-title>
-          <md-card-subtitle>{{card.shortDescription}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-content>
-          <p>
-            {{card.content}}
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button>LIKE</button>
-          <button md-button>SHARE</button>
-        </md-card-actions>
-      </md-card>
-    </div>
-    <div class='td' [dragula]='"first-bag"'>
-      <md-card class="example-card" *ngFor="let card of cards">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>{{card.title}}</md-card-title>
-          <md-card-subtitle>{{card.shortDescription}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-content>
-          <p>
-            {{card.content}}
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button>LIKE</button>
-          <button md-button>SHARE</button>
-        </md-card-actions>
-      </md-card>
+  <div class='wrapper'>
+    <div class='td' *ngFor="let swimlane of boardSwimlanes.swimlanes">
+      <pre>{{swimlane.cards | json}}</pre>
     </div>
   </div>
 </div>
