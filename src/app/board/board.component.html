@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="tr">
-      <div class='td' *ngFor="let swimlane of boardSwimlanes.swimlanes" [dragula]='"first-bag"' [dragulaModel]='swimlane.cards'>
-        <md-card class="example-card" *ngFor="let card of swimlane.cards">
+      <div class='td' *ngFor="let swimlane of boardSwimlanes.swimlanes let i=index" [id]="i + 1" [dragula]='"first-bag"' [dragulaModel]='swimlane.cards'>
+        <md-card class="example-card" *ngFor="let card of swimlane.cards" [id]="card.id">
           <md-card-header>
             <img md-card-avatar src="/assets/card/malecostume-512.png">
             <md-card-title>{{card.title}}</md-card-title>
