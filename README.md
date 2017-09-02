@@ -79,4 +79,25 @@ change styleExt to sass or scss for desired syntax in .angular-cli.json
     "defaults": {
          "styleExt": "scss",
     }
+
+### How to use d3.js in angular2?  
+See [ng2-nvd3](https://github.com/krispo/ng2-nvd3) for more details
+#### Install Angular2 component for nvd3 (uses d3.js v3!)
+  npm install --save ng2-nvd3
   
+Don't forget to include the following in your app.module.ts file:
+
+    import 'd3';
+    import 'nvd3';
+
+Add the following in your component that is wants to display nvd3 graphs
+      
+      styleUrls: ['<whatever.css | whatever.scss>', '../../../node_modules/nvd3/build/nv.d3.css'],
+      encapsulation: ViewEncapsulation.None
+
+Example comonent.html:
+
+    <div>
+      <nvd3 [options]="options" [data]="data"></nvd3>
+    </div>
+

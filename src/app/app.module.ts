@@ -17,6 +17,13 @@ import {AppRoutingModule} from "./app-routing.module";
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import {BoardService} from "./board/board.service";
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import {JobTimesService} from "./employee-dashboard/job_times.service";
+import {NvD3Module} from "ng2-nvd3";
+
+// d3 and nvd3 should be included somewhere
+import 'd3';
+import 'nvd3';
 
 @NgModule({
   declarations: [
@@ -25,7 +32,8 @@ import {BoardService} from "./board/board.service";
     BoardComponent,
     CardComponent,
     SettingsComponent,
-    HelpComponent
+    HelpComponent,
+    EmployeeDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +48,10 @@ import {BoardService} from "./board/board.service";
     MdGridListModule,
     MdListModule,
     DragulaModule,
+    NvD3Module,
     AppRoutingModule
   ],
-  providers: [ BoardService ],
+  providers: [ BoardService, JobTimesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
