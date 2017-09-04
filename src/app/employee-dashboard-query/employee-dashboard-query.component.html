@@ -1,0 +1,9 @@
+<form>
+  <md-select placeholder="Employee" [(ngModel)]="selectedEmployeeId" name="employee_name">
+    <md-option *ngFor="let employee of employees" [value]="employee.id">
+      {{employee.name}}
+    </md-option>
+  </md-select>
+
+  <p> Selected value: {{selectedEmployeeId}} </p>
+</form>

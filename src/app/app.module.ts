@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DragulaModule} from "ng2-dragula";
 import {
-  MdButtonModule, MdCardModule, MdGridListModule, MdIconModule, MdListModule, MdMenuModule,
+  MdButtonModule, MdCardModule, MdGridListModule, MdIconModule, MdListModule, MdMenuModule, MdOptionModule,
+  MdSelectModule,
   MdToolbarModule
 } from "@angular/material";
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,6 +25,10 @@ import {NvD3Module} from "ng2-nvd3";
 // d3 and nvd3 should be included somewhere
 import 'd3';
 import 'nvd3';
+import {EmployeeService} from "./employee-dashboard/employee.service";
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeMultibarChartComponent } from './employee-multibar-chart/employee-multibar-chart.component';
+import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/employee-dashboard-query.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,10 @@ import 'nvd3';
     CardComponent,
     SettingsComponent,
     HelpComponent,
-    EmployeeDashboardComponent
+    EmployeeDashboardComponent,
+    EmployeeComponent,
+    EmployeeMultibarChartComponent,
+    EmployeeDashboardQueryComponent
   ],
   imports: [
     BrowserModule,
@@ -47,11 +55,13 @@ import 'nvd3';
     MdIconModule,
     MdGridListModule,
     MdListModule,
+    MdOptionModule,
+    MdSelectModule,
     DragulaModule,
     NvD3Module,
     AppRoutingModule
   ],
-  providers: [ BoardService, JobTimesService ],
+  providers: [ BoardService, JobTimesService, EmployeeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
