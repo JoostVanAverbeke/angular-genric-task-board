@@ -1,5 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {JobTimesService} from "../employee-dashboard/job_times.service";
+import {Employee} from "../employee-dashboard/employee";
 declare let d3: any;
 
 @Component({
@@ -46,7 +47,12 @@ export class EmployeeMultibarChartComponent implements OnInit {
         }
       }
     };
-    this.jobTimesService.getJobTimesOfEmployee(2).then(data => this.data = data);
+  }
+
+  setEmployeeId(id: number) {
+    if (id > 0) {
+      this.jobTimesService.getJobTimesOfEmployee(id).then(data => this.data = data);
+    }
   }
 
 }
