@@ -26,7 +26,6 @@ import {NvD3Module} from "ng2-nvd3";
 import 'd3';
 import 'nvd3';
 import {EmployeeService} from "./employee-dashboard/employee.service";
-import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeMultibarChartComponent } from './employee-multibar-chart/employee-multibar-chart.component';
 import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/employee-dashboard-query.component';
 
@@ -39,7 +38,6 @@ import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/empl
     SettingsComponent,
     HelpComponent,
     EmployeeDashboardComponent,
-    EmployeeComponent,
     EmployeeMultibarChartComponent,
     EmployeeDashboardQueryComponent
   ],
