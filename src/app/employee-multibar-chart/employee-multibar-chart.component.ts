@@ -44,7 +44,8 @@ export class EmployeeMultibarChartComponent implements OnInit {
           tickFormat: function(d){
             return d3.format(',.1f')(d);
           }
-        }
+        },
+        color: ['#303F9F', '#C5CAE9', '#FF80AB', '#F50057']
       }
     };
   }

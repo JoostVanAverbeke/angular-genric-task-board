@@ -1,9 +1,28 @@
-<form>
-  <md-select placeholder="Employee" [(ngModel)]="selectedEmployeeId" name="employee_name" (ngModelChange)="setSelectedEmployee($event)">
-    <md-option *ngFor="let employee of employees" [value]="employee.id">
-      {{employee.name}}
-    </md-option>
-  </md-select>
+<div class="docs-example-viewer-wrapper">
+  <div class="docs-example-viewer-title">
+    <div class="docs-example-viewer-title-spacer">
+      Employee Query
+    </div>
+  </div>
+  <div class="docs-example-viewer-body">
+    <form>
+      <md-select placeholder="Employee" [(ngModel)]="selectedEmployeeId" name="employee_name" (ngModelChange)="setSelectedEmployee($event)">
+        <md-option *ngFor="let employee of employees" [value]="employee.id">
+          {{employee.name}}
+        </md-option>
+      </md-select>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a start date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a end date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-  <p *ngIf="selectedEmployeeId"> Selected value: {{selectedEmployeeId}} </p>
-</form>
+      <p *ngIf="selectedEmployeeId"> Selected value: {{selectedEmployeeId}} </p>
+    </form>
+  </div>
+</div>
