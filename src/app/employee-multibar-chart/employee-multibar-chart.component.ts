@@ -52,7 +52,7 @@ export class EmployeeMultibarChartComponent implements OnInit {
 
   setEmployeeId(id: number) {
     if (id > 0) {
-      this.jobTimesService.getJobTimesOfEmployee(id).then(data => this.data = data);
+      this.jobTimesService.getJobTimesOfEmployee(id, new Date(), new Date()).then(data => this.data = data);
     }
   }
 

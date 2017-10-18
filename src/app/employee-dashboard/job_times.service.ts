@@ -1,7 +1,8 @@
-import {Http} from '@angular/http';
+import {Http, URLSearchParams} from '@angular/http';
 import {Injectable} from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 export class JobTimesService {
@@ -12,9 +13,13 @@ export class JobTimesService {
    */
   constructor(private http: Http) {
   }
-  getJobTimesOfEmployee(employeeId: number): Promise<Array<any>> {
+  getJobTimesOfEmployee(employeeId: number, startDate: Date, endDate: Date): Promise<Array<any>> {
+    let search = new URLSearchParams();
+    search.set('start', startDate.toLocaleDateString());
+    search.set('end', endDate.toLocaleDateString());
+
     const url = `${this.employeesUrl}/${employeeId}/job_times/streams`;
-    return this.http.get(url)
+    return this.http.get(url, {search: search})
       .toPromise()
       .then(response => response.json().data)
       .catch(this.handleError);

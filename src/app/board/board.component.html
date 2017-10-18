@@ -10,22 +10,22 @@
     </div>
     <div class="tr">
       <div class='td' *ngFor="let swimlane of boardSwimlanes.swimlanes let i=index" [id]="i + 1" [dragula]='"first-bag"' [dragulaModel]='swimlane.cards'>
-        <md-card class="example-card" *ngFor="let card of swimlane.cards" [id]="card.id">
-          <md-card-header>
-            <img md-card-avatar src="/assets/card/malecostume-512.png">
-            <md-card-title>{{card.title}}</md-card-title>
-            <md-card-subtitle>{{card.shortDescription}}</md-card-subtitle>
-          </md-card-header>
-          <md-card-content>
+        <mat-card class="example-card" *ngFor="let card of swimlane.cards" [id]="card.id">
+          <mat-card-header>
+            <img mat-card-avatar src="/assets/card/malecostume-512.png">
+            <mat-card-title>{{card.title}}</mat-card-title>
+            <mat-card-subtitle>{{card.shortDescription}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
             <p>
               {{card.content}}
             </p>
-          </md-card-content>
-          <md-card-actions>
-            <button md-button>LIKE</button>
-            <button md-button>SHARE</button>
-          </md-card-actions>
-        </md-card>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </div>

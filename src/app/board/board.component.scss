@@ -15,7 +15,7 @@
 .td:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.2);
 }
-/* TODO(JVA) .td div, .gu-mirror should be changed to .td md-card, .gu-mirror
+/* TODO(JVA) .td div, .gu-mirror should be changed to .td mat-card, .gu-mirror
    But it affects the look and feel of the card.
 */
 .td div,
@@ -25,7 +25,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 0.4s ease-in-out;
 }
-.td md-card {
+.td mat-card {
   cursor: move;
   cursor: grab;
   cursor: -moz-grab;

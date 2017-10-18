@@ -7,9 +7,8 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DragulaModule} from "ng2-dragula";
 import {
-  MdButtonModule, MdCardModule, MdGridListModule, MdIconModule, MdListModule, MdMenuModule, MdOptionModule,
-  MdSelectModule,
-  MdToolbarModule
+  MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatOptionModule,
+  MatSelectModule, MatToolbarModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule
 } from "@angular/material";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BoardComponent } from './board/board.component';
@@ -46,15 +45,19 @@ import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/empl
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdButtonModule,
-    MdMenuModule,
-    MdCardModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdGridListModule,
-    MdListModule,
-    MdOptionModule,
-    MdSelectModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatGridListModule,
+    MatListModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
     DragulaModule,
     NvD3Module,
     AppRoutingModule

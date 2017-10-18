@@ -1,27 +1,27 @@
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
 
   <span>{{title}}</span>
   <span class="spacer"></span>
-  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+  <button mat-button [mat-menu-trigger-for]="appMenu"><mat-icon>menu</mat-icon> Menu</button>
 
-</md-toolbar>
+</mat-toolbar>
 
-<md-menu #appMenu="mdMenu">
-  <button md-menu-item (click)="renderDashboard()">
-    <md-icon>dashboard</md-icon>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item (click)="renderDashboard()">
+    <mat-icon>dashboard</mat-icon>
     <span>Dashboard</span>
   </button>
-  <button md-menu-item (click)="renderEmployeeDashboard()">
-    <md-icon>assessment</md-icon>
+  <button mat-menu-item (click)="renderEmployeeDashboard()">
+    <mat-icon>assessment</mat-icon>
     <span>Employee dashboard</span>
   </button>
-  <button md-menu-item (click)="renderSettings()">
-    <md-icon>settings</md-icon>
+  <button mat-menu-item (click)="renderSettings()">
+    <mat-icon>settings</mat-icon>
     <span>Settings</span>
   </button>
-  <button md-menu-item (click)="renderHelp()">
-    <md-icon>help</md-icon>
+  <button mat-menu-item (click)="renderHelp()">
+    <mat-icon>help</mat-icon>
     <span>Help</span>
   </button>
-</md-menu>
+</mat-menu>
 <router-outlet></router-outlet>
