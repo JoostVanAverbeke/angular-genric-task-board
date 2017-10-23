@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {Employee} from "./employee";
+
 import {EmployeeMultibarChartComponent} from "../employee-multibar-chart/employee-multibar-chart.component";
+import {EmployeeQuery} from "../employee-dashboard-query/employee-query";
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -9,14 +10,14 @@ import {EmployeeMultibarChartComponent} from "../employee-multibar-chart/employe
 })
 export class EmployeeDashboardComponent implements OnInit {
   @ViewChild(EmployeeMultibarChartComponent) employeeMultiBarChartComponent: EmployeeMultibarChartComponent
-  employee: Employee;
+  employeeQuery: EmployeeQuery;
   constructor() { }
 
   ngOnInit() {
   }
 
-  employeeHandler(event: Employee) {
-    this.employee = event;
-    this.employeeMultiBarChartComponent.setEmployeeId(this.employee.id);
+  employeeQueryHandler(event: EmployeeQuery) {
+    this.employeeQuery = event;
+    this.employeeMultiBarChartComponent.setEmployeeQuery(this.employeeQuery.employee, this.employeeQuery.startDate, this.employeeQuery.endDate);
   }
 }

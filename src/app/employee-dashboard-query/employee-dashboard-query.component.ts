@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {EmployeeService} from "../employee-dashboard/employee.service";
 import {Employee} from "../employee-dashboard/employee";
-import {current} from "codelyzer/util/syntaxKind";
+import {EmployeeQuery} from "./employee-query";
 
 @Component({
   selector: 'app-employee-dashboard-query',
@@ -9,30 +9,41 @@ import {current} from "codelyzer/util/syntaxKind";
   styleUrls: ['./employee-dashboard-query.component.scss']
 })
 export class EmployeeDashboardQueryComponent implements OnInit {
-  @Output() selectEmployee: EventEmitter <Employee> = new EventEmitter();
+  @Output() specifiedEmployeeQuery: EventEmitter <EmployeeQuery> = new EventEmitter();
   employees: Employee[];
-  selectedEmployeeId: number;
-  inputStartDate: Date;
-  inputEndDate: Date;
+  employeeQuery: EmployeeQuery;
 
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
-
     let currentDate = new Date();
 
-    this.inputStartDate = new Date(currentDate.setDate(currentDate.getDate() - 7));
-    this.inputEndDate = new Date();
-
+    this.employeeQuery = new EmployeeQuery();
+    this.employeeQuery.startDate = new Date(currentDate.setDate(currentDate.getDate() - 7));
+    this.employeeQuery.endDate = new Date();
     this.employeeService.getEmployees().then(employees => this.employees = employees);
   }
 
-  setSelectedEmployee(): void {
-    this.selectEmployee.emit(this.getEmployeeById(this.selectedEmployeeId));
-  }
+  processEmployeeQuery(): void {
+    this.employeeQuery.employee = this.getEmployeeById(this.employeeQuery.selectedEmployeeId);
+    if (this.validEmployeeQuery()) {
+      console.log('Emit query for employee ' + this.employeeQuery.employee.name + ' from ' +
+      this.employeeQuery.startDate + ' until ' + this.employeeQuery.endDate);
+      this.specifiedEmployeeQuery.emit(this.employeeQuery);
+    }
+   }
 
   private getEmployeeById(id: number): Employee {
     return this.employees.find(employee => employee.id == id);
+  }
+
+  private validEmployeeQuery(): boolean {
+    let returnValue: boolean = false;
+    if (this.employeeQuery.employee != null &&
+      this.employeeQuery.startDate <= this.employeeQuery.endDate) {
+      returnValue = true;
+    }
+    return returnValue;
   }
 
 }

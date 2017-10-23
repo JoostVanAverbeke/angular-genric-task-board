@@ -6,7 +6,7 @@
   </div>
     <div class="docs-example-viewer-body">
       <mat-form-field>
-        <mat-select placeholder="Employee" [(ngModel)]="selectedEmployeeId" name="employee_name" (ngModelChange)="setSelectedEmployee($event)">
+        <mat-select placeholder="Employee" [(ngModel)]="employeeQuery.selectedEmployeeId" name="employee_name" (ngModelChange)="processEmployeeQuery($event)">
           <mat-option *ngFor="let employee of employees" [value]="employee.id">
             {{employee.name}}
           </mat-option>
@@ -14,18 +14,18 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a start date" [(ngModel)]="inputStartDate">
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a start date" [(ngModel)]="employeeQuery.startDate" (ngModelChange)="processEmployeeQuery($event)">
         <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #startDatePicker></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput [matDatepicker]="endDatePicker" placeholder="Choose an end date" [(ngModel)]="inputEndDate">
+        <input matInput [matDatepicker]="endDatePicker" placeholder="Choose an end date" [(ngModel)]="employeeQuery.endDate" (ngModelChange)="processEmployeeQuery($event)">
         <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #endDatePicker></mat-datepicker>
       </mat-form-field>
 
 
-      <p *ngIf="selectedEmployeeId"> Selected value: {{selectedEmployeeId}} from {{inputStartDate}} until {{inputEndDate}}</p>
+      <p *ngIf="employeeQuery.selectedEmployeeId"> Selected value: {{employeeQuery.selectedEmployeeId}} from {{employeeQuery.startDate}} until {{employeeQuery.endDate}}</p>
     </div>
 </div>

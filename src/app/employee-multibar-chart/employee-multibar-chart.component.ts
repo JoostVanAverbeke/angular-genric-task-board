@@ -12,6 +12,7 @@ declare let d3: any;
 export class EmployeeMultibarChartComponent implements OnInit {
   options;
   data;
+  employee: Employee;
 
   constructor(private jobTimesService: JobTimesService) { }
 
@@ -50,9 +51,10 @@ export class EmployeeMultibarChartComponent implements OnInit {
     };
   }
 
-  setEmployeeId(id: number) {
-    if (id > 0) {
-      this.jobTimesService.getJobTimesOfEmployee(id, new Date(), new Date()).then(data => this.data = data);
+  setEmployeeQuery(employee: Employee, startDate: Date, endDate: Date) {
+    if (employee != null) {
+      this.employee = employee;
+      this.jobTimesService.getJobTimesOfEmployee(employee.id, startDate, endDate).then(data => this.data = data);
     }
   }
 
