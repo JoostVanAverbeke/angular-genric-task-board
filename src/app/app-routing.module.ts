@@ -5,12 +5,14 @@ import {BoardComponent} from "./board/board.component";
 import {HelpComponent} from "./help/help.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {EmployeeDashboardComponent} from "./employee-dashboard/employee-dashboard.component";
+import {EmployeeJobDashboardComponent} from "./employee-job-dashboard/employee-job-dashboard.component";
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'boards', component: DashboardComponent},
   { path: 'boards/:id', component: BoardComponent},
   { path: 'employee_dashboard', component: EmployeeDashboardComponent},
+  { path: 'employee_job_dashboard', component: EmployeeJobDashboardComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'help', component: HelpComponent}
 ];

@@ -1,0 +1,37 @@
+<div class="docs-example-viewer-wrapper">
+  <div class="docs-example-viewer-title">
+    <div class="docs-example-viewer-title-spacer">
+      Employee DashBoard Form Query
+    </div>
+  </div>
+  <div class="docs-example-viewer-body">
+    <form (ngSubmit)="onSubmit()" #employeeDashBoardFormQuery="ngForm">
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="Employee" [(ngModel)]="employeeQuery.selectedEmployeeId" name="employee_name" required>
+            <mat-option *ngFor="let employee of employees" [value]="employee.id">
+              {{employee.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a job range start date"
+               [(ngModel)]="employeeQuery.startDate" name="startDate" required>
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="endDatePicker" placeholder="Choose a job range end date"
+               [(ngModel)]="employeeQuery.endDate" name="endDate" required>
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button type="submit" color="primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -25,4 +25,9 @@ export class AppComponent {
     this.router.navigate(['/employee_dashboard']);
   }
 
+  renderEmployeeJobDashboard() {
+    this.router.navigate(['/employee_job_dashboard']);
+  }
+
+
 }

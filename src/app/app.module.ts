@@ -27,6 +27,9 @@ import 'nvd3';
 import {EmployeeService} from "./employee-dashboard/employee.service";
 import { EmployeeMultibarChartComponent } from './employee-multibar-chart/employee-multibar-chart.component';
 import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/employee-dashboard-query.component';
+import { EmployeeJobDashboardComponent } from './employee-job-dashboard/employee-job-dashboard.component';
+import { EmployeeDonutChartComponent } from './employee-donut-chart/employee-donut-chart.component';
+import { EmployeeDashboardFormQueryComponent } from './employee-dashboard-form-query/employee-dashboard-form-query.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/empl
     HelpComponent,
     EmployeeDashboardComponent,
     EmployeeMultibarChartComponent,
-    EmployeeDashboardQueryComponent
+    EmployeeDashboardQueryComponent,
+    EmployeeJobDashboardComponent,
+    EmployeeDonutChartComponent,
+    EmployeeDashboardFormQueryComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +64,7 @@ import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/empl
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
     DragulaModule,
     NvD3Module,
     AppRoutingModule
