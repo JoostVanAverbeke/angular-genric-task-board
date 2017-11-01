@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -26,10 +26,9 @@ import 'd3';
 import 'nvd3';
 import {EmployeeService} from "./employee-dashboard/employee.service";
 import { EmployeeMultibarChartComponent } from './employee-multibar-chart/employee-multibar-chart.component';
-import { EmployeeDashboardQueryComponent } from './employee-dashboard-query/employee-dashboard-query.component';
 import { EmployeeJobDashboardComponent } from './employee-job-dashboard/employee-job-dashboard.component';
 import { EmployeeDonutChartComponent } from './employee-donut-chart/employee-donut-chart.component';
-import { EmployeeDashboardFormQueryComponent } from './employee-dashboard-form-query/employee-dashboard-form-query.component';
+import { EmployeeJobQueryComponent } from './employee-job-query/employee-job-query.component';
 
 @NgModule({
   declarations: [
@@ -41,14 +40,14 @@ import { EmployeeDashboardFormQueryComponent } from './employee-dashboard-form-q
     HelpComponent,
     EmployeeDashboardComponent,
     EmployeeMultibarChartComponent,
-    EmployeeDashboardQueryComponent,
     EmployeeJobDashboardComponent,
     EmployeeDonutChartComponent,
-    EmployeeDashboardFormQueryComponent
+    EmployeeJobQueryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     MatButtonModule,

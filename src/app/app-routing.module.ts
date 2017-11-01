@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'employee_dashboard', component: EmployeeDashboardComponent},
   { path: 'employee_job_dashboard', component: EmployeeJobDashboardComponent},
   { path: 'settings', component: SettingsComponent},
-  { path: 'help', component: HelpComponent}
+  { path: 'help', component: HelpComponent},
 ];
 
 @NgModule({

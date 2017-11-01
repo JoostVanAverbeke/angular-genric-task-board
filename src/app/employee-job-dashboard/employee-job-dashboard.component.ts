@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {EmployeeQuery} from "../employee-dashboard-query/employee-query";
 import {EmployeeDonutChartComponent} from "../employee-donut-chart/employee-donut-chart.component";
+import {EmployeeJobQuery} from "../employee-job-query/employee-job-query";
 
 @Component({
   selector: 'app-employee-job-dashboard',
@@ -9,15 +10,16 @@ import {EmployeeDonutChartComponent} from "../employee-donut-chart/employee-donu
 })
 export class EmployeeJobDashboardComponent implements OnInit {
   @ViewChild(EmployeeDonutChartComponent) employeeDonutChartComponent: EmployeeDonutChartComponent;
-  employeeQuery: EmployeeQuery;
+  employeeJobQuery: EmployeeJobQuery;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  employeeQueryHandler(event: EmployeeQuery) {
-    this.employeeQuery = event;
-    this.employeeDonutChartComponent.setEmployeeQuery(this.employeeQuery.employee, this.employeeQuery.startDate, this.employeeQuery.endDate);
+  employeeJobQueryHandler(event: EmployeeJobQuery) {
+    this.employeeJobQuery = event;
+    this.employeeDonutChartComponent.setEmployeeQuery(this.employeeJobQuery.employeeId, this.employeeJobQuery.from,
+      this.employeeJobQuery.to);
   }
 }

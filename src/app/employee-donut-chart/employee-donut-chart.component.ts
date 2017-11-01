@@ -10,7 +10,6 @@ import {Employee} from "../employee-dashboard/employee";
 export class EmployeeDonutChartComponent implements OnInit {
   options;
   data;
-  employee: Employee;
 
   constructor() { }
 
@@ -40,10 +39,9 @@ export class EmployeeDonutChartComponent implements OnInit {
     };
   }
 
-  setEmployeeQuery(employee: Employee, startDate: Date, endDate: Date) {
-    if (employee != null) {
-      console.log("generating piechart for empoyee = " + employee.name + " from " + startDate + " until " + endDate);
-      this.employee = employee;
+  setEmployeeQuery(employeeId: number, startDate: Date, endDate: Date) {
+    if (employeeId != 0) {
+      console.log("generating piechart for empoyee = " + employeeId + " from " + startDate + " until " + endDate);
       this.data = [
         {
           key: "One",

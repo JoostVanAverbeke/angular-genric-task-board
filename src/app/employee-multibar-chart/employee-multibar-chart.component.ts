@@ -1,6 +1,8 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {JobTimesService} from "../employee-dashboard/job_times.service";
 import {Employee} from "../employee-dashboard/employee";
+import {EmployeeService} from "../employee-dashboard/employee.service";
+import {EmployeeJobQuery} from "../employee-job-query/employee-job-query";
 declare let d3: any;
 
 @Component({
@@ -14,7 +16,7 @@ export class EmployeeMultibarChartComponent implements OnInit {
   data;
   employee: Employee;
 
-  constructor(private jobTimesService: JobTimesService) { }
+  constructor(private jobTimesService: JobTimesService, private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.options = {
@@ -51,10 +53,11 @@ export class EmployeeMultibarChartComponent implements OnInit {
     };
   }
 
-  setEmployeeQuery(employee: Employee, startDate: Date, endDate: Date) {
-    if (employee != null) {
-      this.employee = employee;
-      this.jobTimesService.getJobTimesOfEmployee(employee.id, startDate, endDate).then(data => this.data = data);
+  setEmployeeJobQuery(employeeJobQuery: EmployeeJobQuery) {
+    if (employeeJobQuery != null && employeeJobQuery.employeeId != null) {
+      this.employeeService.getEmployee(employeeJobQuery.employeeId).then(employee => this.employee = employee);
+      this.jobTimesService.getJobTimesOfEmployee(employeeJobQuery.employeeId, employeeJobQuery.from,
+        employeeJobQuery.to).then(data => this.data = data);
     }
   }
 

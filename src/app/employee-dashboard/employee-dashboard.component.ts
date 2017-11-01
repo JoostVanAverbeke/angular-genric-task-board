@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 
 import {EmployeeMultibarChartComponent} from "../employee-multibar-chart/employee-multibar-chart.component";
-import {EmployeeQuery} from "../employee-dashboard-query/employee-query";
+import {EmployeeJobQuery} from "../employee-job-query/employee-job-query";
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -10,14 +10,15 @@ import {EmployeeQuery} from "../employee-dashboard-query/employee-query";
 })
 export class EmployeeDashboardComponent implements OnInit {
   @ViewChild(EmployeeMultibarChartComponent) employeeMultiBarChartComponent: EmployeeMultibarChartComponent
-  employeeQuery: EmployeeQuery;
+  employeeJobQuery: EmployeeJobQuery;
   constructor() { }
 
   ngOnInit() {
   }
 
-  employeeQueryHandler(event: EmployeeQuery) {
-    this.employeeQuery = event;
-    this.employeeMultiBarChartComponent.setEmployeeQuery(this.employeeQuery.employee, this.employeeQuery.startDate, this.employeeQuery.endDate);
+  employeeJobQueryHandler(event: EmployeeJobQuery) {
+    this.employeeJobQuery = event;
+    this.employeeMultiBarChartComponent.setEmployeeJobQuery(this.employeeJobQuery);
   }
+
 }

@@ -29,5 +29,9 @@ export class AppComponent {
     this.router.navigate(['/employee_job_dashboard']);
   }
 
+  renderTrailFormBuilderComponent() {
+    this.router.navigate((['/trail_form_builder']));
+  }
+
 
 }

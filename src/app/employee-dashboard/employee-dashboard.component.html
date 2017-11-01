@@ -1,5 +1,6 @@
 <div>
-  <app-employee-dashboard-query (specifiedEmployeeQuery)="employeeQueryHandler($event)"></app-employee-dashboard-query>
+  <app-employee-job-query (employeeJobQueryEventEmitter)="employeeJobQueryHandler($event)">
+  </app-employee-job-query>
 </div>
 <div>
   <app-employee-multibar-chart></app-employee-multibar-chart>
