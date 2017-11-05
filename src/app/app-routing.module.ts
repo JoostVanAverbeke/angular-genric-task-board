@@ -6,15 +6,34 @@ import {HelpComponent} from "./help/help.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {EmployeeDashboardComponent} from "./employee-dashboard/employee-dashboard.component";
 import {EmployeeJobDashboardComponent} from "./employee-job-dashboard/employee-job-dashboard.component";
+import {CanActivateWhenAuthenticatedGuard} from "./can-activate-when-authenticated.guard";
+import {AuthenticateComponent} from "./authenticate/authenticate.component";
 
 const appRoutes: Routes = [
-  { path: '', component: DashboardComponent},
-  { path: 'boards', component: DashboardComponent},
-  { path: 'boards/:id', component: BoardComponent},
-  { path: 'employee_dashboard', component: EmployeeDashboardComponent},
-  { path: 'employee_job_dashboard', component: EmployeeJobDashboardComponent},
-  { path: 'settings', component: SettingsComponent},
-  { path: 'help', component: HelpComponent},
+  { path: '', component: DashboardComponent,
+    canActivate: [ CanActivateWhenAuthenticatedGuard ]
+  },
+  { path: 'boards', component: DashboardComponent,
+    canActivate: [ CanActivateWhenAuthenticatedGuard ]
+  },
+  { path: 'boards/:id', component: BoardComponent,
+    canActivate: [ CanActivateWhenAuthenticatedGuard ]
+  },
+  { path: 'employee_dashboard', component: EmployeeDashboardComponent,
+    canActivate: [ CanActivateWhenAuthenticatedGuard ]
+  },
+  { path: 'employee_job_dashboard', component: EmployeeJobDashboardComponent,
+    canActivate: [ CanActivateWhenAuthenticatedGuard ]
+  },
+  { path: 'settings', component: SettingsComponent,
+    canActivate: [ CanActivateWhenAuthenticatedGuard ]
+  },
+  { path: 'help', component: HelpComponent,
+    canActivate: [ CanActivateWhenAuthenticatedGuard ]
+  },
+  {
+    path: 'login', component: AuthenticateComponent
+  }
 ];
 
 @NgModule({

@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {EmployeeQuery} from "../employee-dashboard-query/employee-query";
 import {EmployeeDonutChartComponent} from "../employee-donut-chart/employee-donut-chart.component";
 import {EmployeeJobQuery} from "../employee-job-query/employee-job-query";
 

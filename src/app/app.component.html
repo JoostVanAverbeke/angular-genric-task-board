@@ -2,7 +2,8 @@
 
   <span>{{title}}</span>
   <span class="spacer"></span>
-  <button mat-button [mat-menu-trigger-for]="appMenu"><mat-icon>menu</mat-icon> Menu</button>
+  <theme-picker></theme-picker>
+  <button mat-button><mat-icon [mat-menu-trigger-for]="appMenu">menu</mat-icon>Menu</button>
 
 </mat-toolbar>
 
@@ -26,6 +27,10 @@
   <button mat-menu-item (click)="renderHelp()">
     <mat-icon>help</mat-icon>
     <span>Help</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>person outline</mat-icon>
+    <span>Logout</span>
   </button>
 </mat-menu>
 <router-outlet></router-outlet>

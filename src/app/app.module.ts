@@ -24,11 +24,16 @@ import {NvD3Module} from "ng2-nvd3";
 // d3 and nvd3 should be included somewhere
 import 'd3';
 import 'nvd3';
-import {EmployeeService} from "./employee-dashboard/employee.service";
+import { EmployeeService} from "./employee-dashboard/employee.service";
 import { EmployeeMultibarChartComponent } from './employee-multibar-chart/employee-multibar-chart.component';
 import { EmployeeJobDashboardComponent } from './employee-job-dashboard/employee-job-dashboard.component';
 import { EmployeeDonutChartComponent } from './employee-donut-chart/employee-donut-chart.component';
 import { EmployeeJobQueryComponent } from './employee-job-query/employee-job-query.component';
+import { LDAPService} from "./ldap.service";
+import { CanActivateWhenAuthenticatedGuard} from "./can-activate-when-authenticated.guard";
+import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { AuthenticationService} from "./authentication.service";
+import { ThemePickerModule} from "./shared/theme-picker/theme-picker";
 
 @NgModule({
   declarations: [
@@ -42,7 +47,8 @@ import { EmployeeJobQueryComponent } from './employee-job-query/employee-job-que
     EmployeeMultibarChartComponent,
     EmployeeJobDashboardComponent,
     EmployeeDonutChartComponent,
-    EmployeeJobQueryComponent
+    EmployeeJobQueryComponent,
+    AuthenticateComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +72,16 @@ import { EmployeeJobQueryComponent } from './employee-job-query/employee-job-que
     MatButtonModule,
     DragulaModule,
     NvD3Module,
-    AppRoutingModule
+    AppRoutingModule,
+    ThemePickerModule
   ],
-  providers: [ BoardService, JobTimesService, EmployeeService ],
+  providers: [
+    BoardService,
+    JobTimesService,
+    EmployeeService,
+    AuthenticationService,
+    LDAPService,
+    CanActivateWhenAuthenticatedGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

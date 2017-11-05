@@ -30,8 +30,11 @@ export class AppComponent {
   }
 
   renderTrailFormBuilderComponent() {
-    this.router.navigate((['/trail_form_builder']));
+    this.router.navigate(['/trail_form_builder']);
   }
 
+  logout() {
+    this.router.navigate(['/login']);
+  }
 
 }
