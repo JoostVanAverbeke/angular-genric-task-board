@@ -101,5 +101,8 @@ Example comonent.html:
       <nvd3 [options]="options" [data]="data"></nvd3>
     </div>
 ### The complete guide to Angular Material Themes
-See [Angular Material Themes Guide](https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1)    
+See [Angular Material Themes Guide](https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1) 
+
+### Custom Themes with Angular Material
+See [CUSTOM THEMES WITH ANGULAR MATERIAL](https://blog.thoughtram.io/angular/2017/05/23/custom-themes-with-angular-material.html)   
 

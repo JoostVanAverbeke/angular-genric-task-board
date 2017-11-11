@@ -1,0 +1,85 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import "app/employee-job-query/employee-job-query.scss-theme";
+@import "app/help/help.scss-theme";
+
+
+$miaxello-indigo-light-theme-primary: mat-palette($mat-indigo);
+$miaxello-indigo-light-theme-accent: mat-palette($mat-pink);
+$miaxello-indigo-light-theme-warn: mat-palette($mat-red);
+
+$miaxello-indigo-light-theme: mat-light-theme(
+    $miaxello-indigo-light-theme-primary,
+    $miaxello-indigo-light-theme-accent,
+    $miaxello-indigo-light-theme-warn
+);
+
+$miaxello-cyan-dark-theme-primary: mat-palette($mat-cyan);
+$miaxello-cyan-dark-theme-accent: mat-palette($mat-teal);
+$miaxello-cyan-dark-theme-warn: mat-palette($mat-red);
+
+$miaxello-cyan-dark-theme: mat-dark-theme(
+    $miaxello-cyan-dark-theme-primary,
+    $miaxello-cyan-dark-theme-accent,
+    $miaxello-cyan-dark-theme-warn
+);
+
+@mixin my-components-theme($my-theme) {
+  @include app-employee-job-query-theme($my-theme);
+  @include app-help-theme($my-theme);
+}
+
+.miaxello-indigo-light-theme {
+  @include angular-material-theme($miaxello-indigo-light-theme);
+  @include my-components-theme($miaxello-indigo-light-theme);
+
+}
+
+.miaxello-cyan-dark-theme {
+  @include angular-material-theme($miaxello-cyan-dark-theme);
+  @include my-components-theme($miaxello-cyan-dark-theme);
+}
+
+
+
+
+
+/* floats the menu button in the toolbar right */
+.spacer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+//.query-viewer-wrapper {
+//  border: 1px solid rgba(0, 0, 0, 0.03);
+//  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+//  margin: 4px;
+//}
+//
+//.query-viewer-title {
+//  color: rgba(0, 0, 0, 0.54);
+//  background: rgba(0, 0, 0, 0.03);
+//  padding: 12px 20px;
+//}
+
+//.query-viewer-title-spacer {
+//  -webkit-box-flex: 1;
+//  -ms-flex: 1 1 auto;
+//  flex: 1 1 auto;
+//  flex-grow: 1;
+//  flex-shrink: 1;
+//  flex-basis: auto;
+//}
+//
+//
+//.query-viewer-body {
+//  padding: 30px;
+//  padding-top: 30px;
+//  padding-right: 30px;
+//  padding-bottom: 30px;
+//  padding-left: 30px;
+//}

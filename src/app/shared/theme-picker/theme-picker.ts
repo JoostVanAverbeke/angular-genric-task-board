@@ -1,9 +1,8 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, NgModule} from '@angular/core';
-import { StyleManager} from '../style-manager/style-manager';
-import { ThemeStorage, DocsSiteTheme} from './theme-storage/theme-storage';
+import {Component, ViewEncapsulation, ChangeDetectionStrategy, NgModule, Output, EventEmitter} from '@angular/core';
 import { MatButtonModule, MatGridListModule, MatIconModule, MatMenuModule, MatTooltipModule
 } from '@angular/material';
 import {CommonModule} from '@angular/common';
+import {AppTheme} from "./app-theme";
 
 
 @Component({
@@ -15,61 +14,44 @@ import {CommonModule} from '@angular/common';
   host: {'aria-hidden': 'true'},
 })
 export class ThemePicker {
+  @Output() themeEventEmitter: EventEmitter <AppTheme> = new EventEmitter();
   currentTheme;
 
   themes = [
     {
       primary: '#673AB7',
       accent: '#FFC107',
-      href: 'deeppurple-amber.css',
+      classKey: 'miaxello-cyan-dark-theme',
       isDark: false,
     },
     {
       primary: '#3F51B5',
       accent: '#E91E63',
-      href: 'indigo-pink.css',
+      classKey: 'miaxello-indigo-light-theme',
       isDark: false,
       isDefault: true,
     },
     {
       primary: '#E91E63',
       accent: '#607D8B',
-      href: 'pink-bluegrey.css',
+      classKey: 'miaxello-cyan-dark-theme',
       isDark: true,
     },
     {
       primary: '#9C27B0',
       accent: '#4CAF50',
-      href: 'purple-green.css',
+      classKey: 'miaxello-indigo-light-theme',
       isDark: true,
-    },
+    }
   ];
 
-  constructor(public styleManager: StyleManager, private _themeStorage: ThemeStorage) {
-    this.currentTheme = this.themes[1];
-    // const currentTheme = this._themeStorage.getStoredTheme();
-    // if (currentTheme) {
-    //   this.installTheme(currentTheme);
-    // }
+  constructor() {
+    this.currentTheme = this.themes[2];
   }
 
-  installTheme(theme: DocsSiteTheme) {
+  switchTheme(theme: AppTheme) {
     this.currentTheme = theme;
-    // this.currentTheme = this._getCurrentThemeFromHref(theme.href);
-    //
-    // if (theme.isDefault) {
-    //   this.styleManager.removeStyle('theme');
-    // } else {
-    //   this.styleManager.setStyle('theme', `assets/${theme.href}`);
-    // }
-    //
-    // if (this.currentTheme) {
-    //   this._themeStorage.storeTheme(this.currentTheme);
-    // }
-  }
-
-  private _getCurrentThemeFromHref(href: string): DocsSiteTheme {
-    return this.themes.find(theme => theme.href === href);
+    this.themeEventEmitter.emit(theme);
   }
 }
 
@@ -83,7 +65,7 @@ export class ThemePicker {
     CommonModule
   ],
   exports: [ThemePicker],
-  declarations: [ThemePicker],
-  providers: [StyleManager, ThemeStorage],
+  declarations: [ThemePicker]
 })
+
 export class ThemePickerModule { }

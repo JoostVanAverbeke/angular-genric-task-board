@@ -1,0 +1,19 @@
+@import "~@angular/material/theming";
+
+@mixin app-help-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  app-help {
+    .help_page {
+      color: mat-color($foreground, secondary-text);
+    }
+    h1 {
+      color: mat-color($primary);
+    }
+  }
+}
+

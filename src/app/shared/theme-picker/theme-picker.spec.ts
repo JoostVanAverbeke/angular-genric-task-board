@@ -10,15 +10,15 @@ describe('ThemePicker', () => {
     }).compileComponents();
   }));
 
-  it('should install theme based on href', () => {
+  it('should install theme based on classKey', () => {
     const fixture = TestBed.createComponent(ThemePicker);
     const component = fixture.componentInstance;
     const href = 'pink-bluegrey.css';
     spyOn(component.styleManager, 'setStyle');
-    component.installTheme({
+    component.switchTheme({
       primary: '#E91E63',
       accent: '#607D8B',
-      href,
+      classKey,
     });
     expect(component.styleManager.setStyle).toHaveBeenCalled();
     expect(component.styleManager.setStyle).toHaveBeenCalledWith('theme', `assets/${href}`);

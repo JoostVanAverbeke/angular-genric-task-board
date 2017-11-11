@@ -1,36 +1,39 @@
-<mat-toolbar color="primary">
+<div [class]="theme">
+  <mat-toolbar color="primary">
 
-  <span>{{title}}</span>
-  <span class="spacer"></span>
-  <theme-picker></theme-picker>
-  <button mat-button><mat-icon [mat-menu-trigger-for]="appMenu">menu</mat-icon>Menu</button>
+    <span>{{title}}</span>
+    <span class="spacer"></span>
+    <theme-picker (themeEventEmitter)="themeManager($event)"></theme-picker>
+    <button mat-button><mat-icon [mat-menu-trigger-for]="appMenu">menu</mat-icon>Menu</button>
 
-</mat-toolbar>
+  </mat-toolbar>
 
-<mat-menu #appMenu="matMenu">
-  <button mat-menu-item (click)="renderDashboard()">
-    <mat-icon>dashboard</mat-icon>
-    <span>Dashboard</span>
-  </button>
-  <button mat-menu-item (click)="renderEmployeeDashboard()">
-    <mat-icon>assessment</mat-icon>
-    <span>Employee dashboard</span>
-  </button>
-  <button mat-menu-item (click)="renderEmployeeJobDashboard()">
-    <mat-icon>assessment</mat-icon>
-    <span>Employee job dashboard</span>
-  </button>
-  <button mat-menu-item (click)="renderSettings()">
-    <mat-icon>settings</mat-icon>
-    <span>Settings</span>
-  </button>
-  <button mat-menu-item (click)="renderHelp()">
-    <mat-icon>help</mat-icon>
-    <span>Help</span>
-  </button>
-  <button mat-menu-item (click)="logout()">
-    <mat-icon>person outline</mat-icon>
-    <span>Logout</span>
-  </button>
-</mat-menu>
-<router-outlet></router-outlet>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item (click)="renderDashboard()">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </button>
+    <button mat-menu-item (click)="renderEmployeeDashboard()">
+      <mat-icon>assessment</mat-icon>
+      <span>Employee dashboard</span>
+    </button>
+    <button mat-menu-item (click)="renderEmployeeJobDashboard()">
+      <mat-icon>assessment</mat-icon>
+      <span>Employee job dashboard</span>
+    </button>
+    <button mat-menu-item (click)="renderSettings()">
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+    <button mat-menu-item (click)="renderHelp()">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>person outline</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+  <router-outlet></router-outlet>
+</div>
+

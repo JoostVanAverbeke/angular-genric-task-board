@@ -1,9 +1,24 @@
-<div id="page-padding">
-  <h1>Help</h1>
-  <p>Here you can find some help about the application</p>
-  <label>Number of Thumbnails</label>
-  <mat-slider
-    showTicks="true" max="100" min="0" step="1" thumbLabel="true" value="18">
-  </mat-slider>
-  <!--<mat-slide-toggle>Some help</mat-slide-toggle>-->
+<div class="mat-app-background">
+  <div class="help_page">
+    <h1>Help</h1>
+    <p class="mat-app-foreground">Here you can find some help about the application</p>
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a job range start date"
+               required >
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <mat-card>
+      <button mat-raised-button color="primary">Primary</button>
+      <button mat-raised-button color="accent">Accent</button>
+      <button mat-raised-button color="warn">Warn</button>
+    </mat-card>
+    <label>Number of Thumbnails</label>
+    <mat-slider
+      showTicks="true" max="100" min="0" step="1" thumbLabel="true" value="18">
+    </mat-slider>
+    <!--<mat-slide-toggle>Some help</mat-slide-toggle>-->
+  </div>
 </div>

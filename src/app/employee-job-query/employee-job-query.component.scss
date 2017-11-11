@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  padding: 20px 0;
+}
+
+.query-viewer-title {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 8px 20px;
+}
+
+.query-viewer-title-spacer {
+  flex: 1 1 auto;
+}
+
+.query-viewer-body {
+  padding: 30px;
+}
+

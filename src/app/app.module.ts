@@ -34,6 +34,7 @@ import { CanActivateWhenAuthenticatedGuard} from "./can-activate-when-authentica
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { AuthenticationService} from "./authentication.service";
 import { ThemePickerModule} from "./shared/theme-picker/theme-picker";
+import {OverlayContainer} from "@angular/cdk/overlay";
 
 @NgModule({
   declarations: [
@@ -84,4 +85,8 @@ import { ThemePickerModule} from "./shared/theme-picker/theme-picker";
     CanActivateWhenAuthenticatedGuard ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private overlayContainer: OverlayContainer) {
+    this.overlayContainer.getContainerElement().classList.add('miaxello-indigo-light-theme');
+  }
+}

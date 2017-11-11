@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {AppTheme} from "./shared/theme-picker/app-theme";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'Miaxello Dashboard';
+  theme = 'miaxello-indigo-light-theme';
+
   constructor(private router: Router) {
   }
   renderDashboard() {
@@ -35,6 +38,10 @@ export class AppComponent {
 
   logout() {
     this.router.navigate(['/login']);
+  }
+
+  themeManager(theme: AppTheme) {
+    this.theme = theme.classKey;
   }
 
 }

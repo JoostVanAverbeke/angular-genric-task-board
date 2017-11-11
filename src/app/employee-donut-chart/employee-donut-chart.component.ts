@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Employee} from "../employee-dashboard/employee";
+declare let d3: any;
 
 @Component({
   selector: 'app-employee-donut-chart',
@@ -33,7 +33,7 @@ export class EmployeeDonutChartComponent implements OnInit {
             right: 140,
             bottom: 5,
             left: 0
-          }
+          },
         }
       }
     };
