@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class JobTimesService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  employeesUrl = 'http://localhost:3000/employees';
+  employeesUrl = 'http://localhost:10000/employees';
   /*
     Constructs a JobTimesService
    */
@@ -18,7 +18,7 @@ export class JobTimesService {
     search.set('start', startDate.toLocaleDateString());
     search.set('end', endDate.toLocaleDateString());
 
-    const url = `${this.employeesUrl}/${employeeId}/job_times/streams`;
+    const url = `${this.employeesUrl}/${employeeId}/jobs/streams`;
     return this.http.get(url, {search: search})
       .toPromise()
       .then(response => response.json().data)

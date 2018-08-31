@@ -7,7 +7,7 @@ import {Employee} from "./employee";
 @Injectable()
 export class EmployeeService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  employeesUrl = 'http://localhost:3000/employees';
+  employeesUrl = 'http://localhost:10000/employees';
   /*
    Constructs a EmployeeService
    */
@@ -16,7 +16,7 @@ export class EmployeeService {
   getEmployees(): Promise<Employee[]> {
     return this.http.get(this.employeesUrl)
       .toPromise()
-      .then(response => response.json().data as Employee[])
+      .then(response => response.json() as Employee[])
       .catch(this.handleError);
   }
 
@@ -25,7 +25,7 @@ export class EmployeeService {
 
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Employee)
+      .then(response => response.json() as Employee)
       .catch(this.handleError);
   }
 

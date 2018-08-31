@@ -9,8 +9,8 @@
       <div>
         <mat-form-field>
           <mat-select placeholder="Employee" name="employee_name" required formControlName="employeeId">
-            <mat-option *ngFor="let employee of employees" [value]="employee.id">
-              {{employee.name}}
+            <mat-option *ngFor="let employee of employees" [value]="employee.emp_Id">
+              {{employee.emp_LastName}}
             </mat-option>
           </mat-select>
         </mat-form-field>
